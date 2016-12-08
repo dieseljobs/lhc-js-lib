@@ -1,5 +1,5 @@
 import expect from 'expect'
-import * as numberFormat from '../../src/helpers/number-format'
+import * as numberFormat from '../../lib/helpers/number-format'
 
 describe('Helpers', () => {
 

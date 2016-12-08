@@ -1,5 +1,5 @@
 import expect from 'expect'
-import * as dateFormat from '../../src/helpers/date-format'
+import * as dateFormat from '../../lib/helpers/date-format'
 
 describe('Helpers', () => {
 
