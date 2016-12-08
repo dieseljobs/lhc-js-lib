@@ -1,6 +1,6 @@
 {
   "name": "lhc-js-lib",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "description": "The Left Handed Companies Javascript libraray",
   "main": "src/index.js",
   "scripts": {
