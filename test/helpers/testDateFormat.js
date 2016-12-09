@@ -8,6 +8,7 @@ describe('Helpers', () => {
     it('should return yearsOld', () => {
       const today = new Date()
       const thisYear = today.getFullYear()
+      const thisMonth = today.getMonth()
 
       let year = null
       let yearsOld = dateFormat.yearsOld(year)
@@ -22,6 +23,11 @@ describe('Helpers', () => {
       year = "2016"
       yearsOld = dateFormat.yearsOld(year)
       expectedYearsOld = (thisYear - parseInt(year))+" years old"
+      expect(yearsOld).toEqual(expectedYearsOld)
+
+      year = "2010"
+      yearsOld = dateFormat.yearsOld(year, false)
+      expectedYearsOld = (thisYear-parseInt(year)+(thisMonth/12)).toFixed(1)+" years old"
       expect(yearsOld).toEqual(expectedYearsOld)
     })
 
