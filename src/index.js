@@ -1,7 +1,12 @@
 import helpers from './helpers'
 import validators from './validators'
 
-export default {
-  helpers, 
-  validators
-}
+export const {
+  humanNumber,
+  yearsOld,
+  yearsFromNowRange
+} = helpers
+
+export const {
+  email: validateEmail
+} = validators

@@ -1,5 +1,5 @@
 import expect from 'expect'
-import * as numberFormat from '../../lib/helpers/number-format'
+import { humanNumber } from '../../src'
 
 describe('Helpers', () => {
 
@@ -7,7 +7,7 @@ describe('Helpers', () => {
 
     it('should return humanNumber', () => {
       let num = 1000000
-      let formattedNum = numberFormat.humanNumber(num)
+      let formattedNum = humanNumber(num)
       expect(formattedNum).toEqual("1,000,000")
     })
 

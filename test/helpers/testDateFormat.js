@@ -1,5 +1,5 @@
 import expect from 'expect'
-import * as dateFormat from '../../lib/helpers/date-format'
+import { yearsOld, yearsFromNowRange } from '../../src'
 
 describe('Helpers', () => {
 
@@ -11,24 +11,28 @@ describe('Helpers', () => {
       const thisMonth = today.getMonth()
 
       let year = null
-      let yearsOld = dateFormat.yearsOld(year)
+      let _yearsOld = yearsOld(year)
       let expectedYearsOld = "Unknown"
-      expect(yearsOld).toEqual(expectedYearsOld)
+      expect(_yearsOld).toEqual(expectedYearsOld)
 
       year = "2010"
-      yearsOld = dateFormat.yearsOld(year)
+      _yearsOld = yearsOld(year)
       expectedYearsOld = (thisYear - parseInt(year))+" years old"
-      expect(yearsOld).toEqual(expectedYearsOld)
+      expect(_yearsOld).toEqual(expectedYearsOld)
 
       year = "2016"
-      yearsOld = dateFormat.yearsOld(year)
-      expectedYearsOld = (thisYear - parseInt(year))+" years old"
-      expect(yearsOld).toEqual(expectedYearsOld)
+      _yearsOld = yearsOld(year)
+      expectedYearsOld = (thisYear - parseInt(year))+" year old"
+      expect(_yearsOld).toEqual(expectedYearsOld)
 
       year = "2010"
-      yearsOld = dateFormat.yearsOld(year, false)
+      _yearsOld = yearsOld(year, false)
       expectedYearsOld = (thisYear-parseInt(year)+(thisMonth/12)).toFixed(1)+" years old"
-      expect(yearsOld).toEqual(expectedYearsOld)
+      expect(_yearsOld).toEqual(expectedYearsOld)
+    })
+
+    it('should return yearsFromNowRange', () => {
+      expect(yearsFromNowRange(2)).toEqual([2017,2018])
     })
 
   })

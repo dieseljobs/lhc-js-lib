@@ -1,17 +1,17 @@
 import expect from 'expect'
-import validators from '../lib/validators'
+import { validateEmail } from '../src'
 
 describe('Validators', () => {
 
   it('should validate email', () => {
     let email = "aa"
-    expect(validators.email(email)).toEqual(false)
+    expect(validateEmail(email)).toEqual(false)
 
     email = "aaron.kaz@mail"
-    expect(validators.email(email)).toEqual(false)
+    expect(validateEmail(email)).toEqual(false)
 
     email = "aaron.kaz@mail.com"
-    expect(validators.email(email)).toEqual(true)
+    expect(validateEmail(email)).toEqual(true)
   })
 
 })

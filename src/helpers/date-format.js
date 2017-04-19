@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 /**
  * Get years old from year string
  * If floor set to false, returns expression of years + months as decimal
@@ -25,4 +27,21 @@ export const yearsOld = (year, floor = true) => {
     age = age.toString() + ' years old';
   }
   return age;
+}
+
+/**
+ * Produce a range of years starting from current year
+ *
+ * @param  {integer} count
+ * @return {array}
+ */
+export const yearsFromNowRange = ( count ) => {
+  let cursorYear = parseInt( moment().format('YYYY') )
+  let lastYear = cursorYear + count
+  let yearRange = []
+  while ( cursorYear < lastYear ) {
+    yearRange.push( cursorYear )
+    cursorYear ++
+  }
+  return yearRange
 }
