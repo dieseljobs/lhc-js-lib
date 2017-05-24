@@ -1,4 +1,5 @@
 import helpers from './helpers'
+import storage from './storage'
 import validators from './validators'
 
 export const {
@@ -6,6 +7,12 @@ export const {
   yearsOld,
   yearsFromNowRange
 } = helpers
+
+export const {
+  createSessionListener,
+  removeAndBroadcastSession,
+  setAndBroadcastSession
+} = storage
 
 export const {
   email: validateEmail

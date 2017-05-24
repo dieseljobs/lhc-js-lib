@@ -2,7 +2,10 @@ import expect from 'expect'
 import { humanNumber,
         yearsOld,
         yearsFromNowRange,
-        validateEmail
+        validateEmail,
+        createSessionListener,
+        removeAndBroadcastSession,
+        setAndBroadcastSession
       } from '../src'
 
 describe('lhc-js-lib', () => {
@@ -18,6 +21,15 @@ describe('lhc-js-lib', () => {
   })
   it('exports validateEmail', () => {
     expect(validateEmail).toBeTruthy()
+  })
+  it('exports createSessionListener', () => {
+    expect(createSessionListener).toBeTruthy()
+  })
+  it('exports removeAndBroadcastSession', () => {
+    expect(removeAndBroadcastSession).toBeTruthy()
+  })
+  it('exports setAndBroadcastSession', () => {
+    expect(setAndBroadcastSession).toBeTruthy()
   })
 
 })
