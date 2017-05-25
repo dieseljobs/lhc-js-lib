@@ -4,6 +4,7 @@ import validators from './validators'
 
 export const {
   humanNumber,
+  currency,
   yearsOld,
   yearsFromNowRange
 } = helpers

@@ -1,5 +1,6 @@
 import expect from 'expect'
 import { humanNumber,
+        currency,
         yearsOld,
         yearsFromNowRange,
         validateEmail,
@@ -12,6 +13,9 @@ describe('lhc-js-lib', () => {
 
   it('exports humanNumber', () => {
     expect(humanNumber).toBeTruthy()
+  })
+  it('exports currency', () => {
+    expect(currency).toBeTruthy()
   })
   it('exports yearsOld', () => {
     expect(yearsOld).toBeTruthy()
