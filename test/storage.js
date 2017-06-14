@@ -30,19 +30,21 @@ describe('storage', () => {
     script.src = 'app-test.compiled.js'
     window.document.getElementsByTagName('head')[0].appendChild(script)
 
+    window.eval(`setAndBroadcastSession('foo', 'bar')`)
+
     const broadcastMessage = {
       key: 'foo',
       value: 'bar'
     }
 
-    window.eval(`localStorage.setItem( 'broadcastSessionStorage', JSON.stringify({key:'foo',value:'bar'}) )`)
+    //window.eval(`localStorage.setItem( 'broadcastSessionStorage', JSON.stringify({key:'foo',value:'bar'}) )`)
     //window.eval(`localStorage.removeItem( 'broadcastSessionStorage' )`)
 
     //const newStore = inherit(sessionStorage)
     //console.log(newStore)
     //const window = (new JSDOM()).window
     //window.createElement("script")
-    console.log('localStorage>>>>', dom.window.localStorage)
+    //console.log('localStorage>>>>', dom.window.localStorage)
     console.log('sessionStorage>>>>', dom.window.sessionStorage)
 
   })

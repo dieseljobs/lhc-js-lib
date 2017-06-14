@@ -1,12 +1,68 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 'use strict';
 
-var _listener = require('./src/storage/listener');
+var _storage = require('./src/storage');
 
 // initialize session listener
-(0, _listener.createSessionListener)();
+(0, _storage.createSessionListener)();
 
-},{"./src/storage/listener":2}],2:[function(require,module,exports){
+window.setAndBroadcastSession = _storage.setAndBroadcastSession;
+
+},{"./src/storage":3}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * Sets key-value pair to sessionStorage and "broadcasts/triggers" event in
+ * other open tabs to do the same
+ *
+ * @param {string} key
+ * @param {mixed} value
+ */
+var setAndBroadcastSession = exports.setAndBroadcastSession = function setAndBroadcastSession(key, value) {
+  // set in storage @ current tab
+  sessionStorage.setItem(key, JSON.stringify(value)
+  // broadcast to other open tabs
+  );var broadcastMessage = {
+    key: key,
+    value: value
+  };
+  localStorage.setItem('broadcastSessionStorage', JSON.stringify(broadcastMessage));
+  localStorage.removeItem('broadcastSessionStorage');
+};
+
+var removeAndBroadcastSession = exports.removeAndBroadcastSession = function removeAndBroadcastSession(key) {
+  // remove from current tab
+  sessionStorage.removeItem(key
+  // broadcast to remove from other open tabs
+  );localStorage.setItem('broadcastSessionStorageRemoval', key);
+  localStorage.removeItem('broadcastSessionStorageRemoval');
+};
+
+},{}],3:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _actions = require('./actions');
+
+var actions = _interopRequireWildcard(_actions);
+
+var _listener = require('./listener');
+
+var listeners = _interopRequireWildcard(_listener);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+exports.default = _extends({}, actions, listeners);
+
+},{"./actions":2,"./listener":4}],4:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
