@@ -6,6 +6,7 @@ export const createSessionListener = () => {
    * @return {void}
    */
   const sessionStorageTransfer = ( event ) => {
+    console.log('event>>>', event)
     if ( !event ) { event = window.event } // ie suq
     if ( !event.newValue ) return          // do nothing if no value to work with
     if ( event.key === 'getSessionStorage') {
