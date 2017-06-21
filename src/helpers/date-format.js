@@ -9,9 +9,11 @@ import moment from 'moment'
  * @return {string}
  */
 export const yearsOld = (year, floor = true) => {
-  if (!year) return 'Unknown';
+  if (!year || parseInt(year) <= 0 || String(year).length !== 4) {
+    return 'Unknown';
+  }
   const today = new Date();
-  let thisYear = today.getFullYear();
+  const thisYear = today.getFullYear();
   let age = thisYear - parseInt(year);
   // if floor set to false, include expression years.months (as decimal)
   if (!floor) {
