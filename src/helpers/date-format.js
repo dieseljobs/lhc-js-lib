@@ -9,7 +9,7 @@ import moment from 'moment'
  * @return {string}
  */
 export const yearsOld = (year, floor = true) => {
-  if (String(year).length !== 4) {
+  if (!year || parseInt(year) <= 0 || String(year).length !== 4) {
     return 'Unknown';
   }
   const today = new Date();
