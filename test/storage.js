@@ -1,8 +1,9 @@
 import { JSDOM, VirtualConsole } from 'jsdom'
 
 describe('storage', () => {
-
+  /*
   it('should listen to broadcasted actions', () => {
+
 
     function inherit(p) {
       if (p == null) throw TypeError();
@@ -48,7 +49,7 @@ describe('storage', () => {
     console.log('sessionStorage>>>>', dom.window.sessionStorage)
 
   })
-
+  */
 })
 
 /*

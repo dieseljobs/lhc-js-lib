@@ -5,6 +5,11 @@ import validators from './validators'
 export const {
   humanNumber,
   currency,
+  varToDate,
+  dateStampFormat,
+  daysAgoFormat,
+  monthDayFormat,
+  shortMonthDayFormat,
   yearsOld,
   yearsFromNowRange
 } = helpers

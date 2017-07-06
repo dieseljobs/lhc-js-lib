@@ -1,6 +1,11 @@
 import expect from 'expect'
 import { humanNumber,
         currency,
+        varToDate,
+        dateStampFormat,
+        daysAgoFormat,
+        monthDayFormat,
+        shortMonthDayFormat,
         yearsOld,
         yearsFromNowRange,
         validateEmail,
