@@ -1,6 +1,7 @@
 import expect from 'expect'
 import { humanNumber,
         currency,
+        format2d,
         varToDate,
         dateStampFormat,
         daysAgoFormat,
@@ -21,6 +22,24 @@ describe('lhc-js-lib', () => {
   })
   it('exports currency', () => {
     expect(currency).toBeTruthy()
+  })
+  it('exports format2d', () => {
+    expect(currency).toBeTruthy()
+  })
+  it('exports varToDate', () => {
+    expect(yearsOld).toBeTruthy()
+  })
+  it('exports dateStampFormat', () => {
+    expect(yearsOld).toBeTruthy()
+  })
+  it('exports daysAgoFormat', () => {
+    expect(yearsOld).toBeTruthy()
+  })
+  it('exports monthDayFormat', () => {
+    expect(yearsOld).toBeTruthy()
+  })
+  it('exports shortMonthDayFormat', () => {
+    expect(yearsOld).toBeTruthy()
   })
   it('exports yearsOld', () => {
     expect(yearsOld).toBeTruthy()

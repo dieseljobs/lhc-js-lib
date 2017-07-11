@@ -5,6 +5,7 @@ import validators from './validators'
 export const {
   humanNumber,
   currency,
+  format2d,
   varToDate,
   dateStampFormat,
   daysAgoFormat,

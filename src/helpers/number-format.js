@@ -7,3 +7,7 @@ export const currency = ( num ) => {
   num = humanNumber( num )
   return `$${num}`
 }
+
+export const format2d = ( num ) => {
+  return parseFloat( Math.round( parseInt( num ) * 100 ) / 100 ).toFixed( 2 )
+}
