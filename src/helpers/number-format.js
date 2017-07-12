@@ -9,5 +9,5 @@ export const currency = ( num ) => {
 }
 
 export const format2d = ( num ) => {
-  return parseFloat( Math.round( parseInt( num ) * 100 ) / 100 ).toFixed( 2 )
+  return parseFloat( num ).toFixed( 2 )
 }
