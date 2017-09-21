@@ -12,7 +12,10 @@ export const {
   monthDayFormat,
   shortMonthDayFormat,
   yearsOld,
-  yearsFromNowRange
+  yearsFromNowRange,
+  encode64,
+  decode64,
+  parseJwt
 } = helpers
 
 export const {

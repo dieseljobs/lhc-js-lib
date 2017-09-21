@@ -1,4 +1,9 @@
+import * as crypto from './crypto'
 import * as dateFormat from './date-format'
 import * as numberFormat from './number-format'
 
-export default { ...dateFormat, ...numberFormat }
+export default {
+  ...crypto,
+  ...dateFormat,
+  ...numberFormat
+}

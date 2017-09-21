@@ -12,7 +12,10 @@ import { humanNumber,
         validateEmail,
         createSessionListener,
         removeAndBroadcastSession,
-        setAndBroadcastSession
+        setAndBroadcastSession,
+        encode64,
+        decode64,
+        parseJwt
       } from '../src'
 
 describe('lhc-js-lib', () => {
@@ -58,6 +61,15 @@ describe('lhc-js-lib', () => {
   })
   it('exports setAndBroadcastSession', () => {
     expect(setAndBroadcastSession).toBeTruthy()
+  })
+  it('exports encode64', () => {
+    expect(encode64).toBeTruthy()
+  })
+  it('exports decode64', () => {
+    expect(decode64).toBeTruthy()
+  })
+  it('exports parseJwt', () => {
+    expect(parseJwt).toBeTruthy()
   })
 
 })
