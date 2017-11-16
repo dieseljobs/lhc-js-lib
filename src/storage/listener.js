@@ -21,8 +21,9 @@ export const createSessionListener = () => {
       }
     } else if ( event.key === 'broadcastSessionStorage' ) {
       // set a new session item from broadcast event
-      const broadcastMessage = JSON.parse( event.newValue )
-      sessionStorage.setItem( broadcastMessage.key, JSON.stringify( broadcastMessage.value ) )
+      const { key, value } = JSON.parse( event.newValue )
+      const saveValue = typeof value === 'object' ? JSON.stringify( value ) : value
+      sessionStorage.setItem( key, saveValue )
     } else if ( event.key === 'broadcastSessionStorageRemoval' ) {
       // remove a session item from broacast event
       sessionStorage.removeItem( event.newValue )
