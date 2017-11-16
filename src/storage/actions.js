@@ -7,7 +7,8 @@
  */
 export const setAndBroadcastSession = ( key, value ) => {
   // set in storage @ current tab
-  sessionStorage.setItem( key, JSON.stringify( value ) )
+  const saveValue = typeof value === 'object' ? JSON.stringify( value ) : value
+  sessionStorage.setItem( key, saveValue )
   // broadcast to other open tabs
   const broadcastMessage = {
     key,
