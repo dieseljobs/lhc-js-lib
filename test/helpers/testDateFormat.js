@@ -11,6 +11,10 @@ describe('Helpers', () => {
 
   describe('Date Format', () => {
 
+    const today = new Date()
+    const thisYear = today.getFullYear()
+    const thisMonth = today.getMonth()
+    
     const _php_epoch = '1499362748'
     const _epoch = 1499362748000
     const _string = '2017-07-06 13:39:08'
@@ -26,7 +30,7 @@ describe('Helpers', () => {
     })
 
     it('should convert datetime string', () => {
-      expect(varToDate(_string)).toEqual('Thu Jul 06 2017 13:39:08 GMT-0400 (EDT)')
+      expect(varToDate(_string)).toEqual('Thu Jul 06 2017 09:39:08 GMT-0400 (EDT)')
     })
 
     it('should convert date instance', () => {
@@ -50,33 +54,29 @@ describe('Helpers', () => {
     })
 
     it('should return yearsOld', () => {
-      const today = new Date()
-      const thisYear = today.getFullYear()
-      const thisMonth = today.getMonth()
-
       let year = null
       let _yearsOld = yearsOld(year)
       let expectedYearsOld = "Unknown"
       expect(_yearsOld).toEqual(expectedYearsOld)
 
-      year = "2010"
+      year = parseInt(thisYear) - 10
       _yearsOld = yearsOld(year)
       expectedYearsOld = (thisYear - parseInt(year))+" years old"
       expect(_yearsOld).toEqual(expectedYearsOld)
 
-      year = "2016"
+      year = parseInt(thisYear) - 1
       _yearsOld = yearsOld(year)
       expectedYearsOld = (thisYear - parseInt(year))+" year old"
       expect(_yearsOld).toEqual(expectedYearsOld)
 
-      year = "2010"
+      year = parseInt(thisYear) - 10
       _yearsOld = yearsOld(year, false)
       expectedYearsOld = (thisYear-parseInt(year)+(thisMonth/12)).toFixed(1)+" years old"
       expect(_yearsOld).toEqual(expectedYearsOld)
     })
 
     it('should return yearsFromNowRange', () => {
-      expect(yearsFromNowRange(2)).toEqual([2017,2018])
+      expect(yearsFromNowRange(2)).toEqual([thisYear,(parseInt(thisYear)+1)])
     })
 
   })

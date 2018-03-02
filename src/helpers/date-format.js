@@ -53,8 +53,11 @@ export const varToDate = ( value ) => {
     return value
   }
   // if value is a number string with length of 10, its php epoch time
-  if ( ! /\-|\//.test( value ) && value.toString().length === 10 ) {
+  if ( !/\-|\//.test( value ) && value.toString().length === 10 ) {
     value = 1000 * ( parseInt( value ) )
+  // else if value is a date string, ensure is UTC
+  } else if ( /\-|\//.test( value ) && !/UTC/.test( value ) ) {
+    value += ' UTC'
   }
 
   return new Date( value )
@@ -68,8 +71,8 @@ export const varToDate = ( value ) => {
  */
 export const dateStampFormat = ( value ) => {
   const date = varToDate( value )
-  const day = ( "0" + ( date.getUTCDate() ) ).slice( -2 )
-  const month = ( "0" + ( date.getUTCMonth() + 1 ) ).slice( -2 )
+  const day = ( "0" + ( date.getDate() ) ).slice( -2 )
+  const month = ( "0" + ( date.getMonth() + 1 ) ).slice( -2 )
   const year = date.getFullYear()
 
   return year + '-' + month + '-' + day
@@ -115,8 +118,8 @@ export const daysAgoFormat = ( value ) => {
  */
 export const monthDayFormat = ( value ) => {
   const date = varToDate( value )
-  const day = date.getUTCDate()
-  const monthIndex = date.getUTCMonth()
+  const day = date.getDate()
+  const monthIndex = date.getMonth()
 
   return MONTH_NAMES[ monthIndex ] + ' ' + day
 }
@@ -129,8 +132,8 @@ export const monthDayFormat = ( value ) => {
  */
 export const shortMonthDayFormat = ( value ) => {
   const date = varToDate( value )
-  const day = date.getUTCDate()
-  const monthIndex = date.getUTCMonth()
+  const day = date.getDate()
+  const monthIndex = date.getMonth()
 
   return SHORT_MONTH_NAMES[ monthIndex ] + ' ' + day
 }
