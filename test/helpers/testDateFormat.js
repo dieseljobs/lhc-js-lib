@@ -2,7 +2,9 @@ import expect from 'expect'
 import { varToDate,
          dateStampFormat,
          daysAgoFormat,
+         longFormat,
          monthDayFormat,
+         monthDayYearFormat,
          shortMonthDayFormat,
          yearsOld,
          yearsFromNowRange } from '../../src'
@@ -44,9 +46,17 @@ describe('Helpers', () => {
     it('should handle daysAgoFormat Today', () => {
       expect(daysAgoFormat(_today)).toEqual("Today")
     })
+    
+    it('should handle longFormat', () => {
+      expect(longFormat(_date)).toEqual("Thursday, July 6, 2017")
+    })
 
     it('should handle monthDayFormat', () => {
       expect(monthDayFormat(_date)).toEqual("July 6")
+    })
+    
+    it('should handle monthDayYearFormat', () => {
+      expect(monthDayYearFormat(_date)).toEqual("July 6, 2017")
     })
 
     it('should handle shortMonthDayFormat', () => {

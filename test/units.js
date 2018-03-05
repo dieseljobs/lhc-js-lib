@@ -5,7 +5,9 @@ import { humanNumber,
         varToDate,
         dateStampFormat,
         daysAgoFormat,
+        longFormat,
         monthDayFormat,
+        monthDayYearFormat,
         shortMonthDayFormat,
         yearsOld,
         yearsFromNowRange,
@@ -27,22 +29,28 @@ describe('lhc-js-lib', () => {
     expect(currency).toBeTruthy()
   })
   it('exports format2d', () => {
-    expect(currency).toBeTruthy()
+    expect(format2d).toBeTruthy()
   })
   it('exports varToDate', () => {
-    expect(yearsOld).toBeTruthy()
+    expect(varToDate).toBeTruthy()
   })
   it('exports dateStampFormat', () => {
-    expect(yearsOld).toBeTruthy()
+    expect(dateStampFormat).toBeTruthy()
   })
   it('exports daysAgoFormat', () => {
-    expect(yearsOld).toBeTruthy()
+    expect(daysAgoFormat).toBeTruthy()
+  })
+  it('exports longFormat', () => {
+    expect(longFormat).toBeTruthy()
   })
   it('exports monthDayFormat', () => {
-    expect(yearsOld).toBeTruthy()
+    expect(monthDayFormat).toBeTruthy()
+  })
+  it('exports monthDayYearFormat', () => {
+    expect(monthDayYearFormat).toBeTruthy()
   })
   it('exports shortMonthDayFormat', () => {
-    expect(yearsOld).toBeTruthy()
+    expect(shortMonthDayFormat).toBeTruthy()
   })
   it('exports yearsOld', () => {
     expect(yearsOld).toBeTruthy()

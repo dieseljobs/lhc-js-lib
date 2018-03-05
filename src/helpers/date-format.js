@@ -125,6 +125,21 @@ export const monthDayFormat = ( value ) => {
 }
 
 /**
+ * Full month name, date and year format
+ *
+ * @param  {Date|Integer|String} value
+ * @return {String}
+ */
+export const monthDayYearFormat = ( value ) => {
+  const date = varToDate( value )
+  const day = date.getDate()
+  const monthIndex = date.getMonth()
+  const _year = date.getFullYear()
+
+  return MONTH_NAMES[ monthIndex ] + ' ' + day + ', ' + _year
+}
+
+/**
  * Short month name and date format
  *
  * @param  {Date|Integer|String} value
@@ -136,6 +151,21 @@ export const shortMonthDayFormat = ( value ) => {
   const monthIndex = date.getMonth()
 
   return SHORT_MONTH_NAMES[ monthIndex ] + ' ' + day
+}
+
+/**
+ * Return date in long format ie (Sunday, September 17 2017)
+ * @param  {mixed} value 
+ * @return {String}       
+ */
+export const longFormat = ( value ) => {
+  const date = varToDate( value )
+  const _dayIndex = date.getDay()
+  const _date = date.getDate()
+  const _monthIndex = date.getMonth()
+  const _year = date.getFullYear()
+  
+  return `${WEEKDAYS[_dayIndex]}, ${MONTH_NAMES[ _monthIndex ]} ${_date}, ${_year}`
 }
 
 /**
@@ -187,3 +217,5 @@ export const yearsFromNowRange = ( count ) => {
 
   return yearRange
 }
+
+
