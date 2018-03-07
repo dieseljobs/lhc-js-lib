@@ -57,7 +57,7 @@ export const varToDate = ( value ) => {
     value = 1000 * ( parseInt( value ) )
   // else if value is a date string, ensure is UTC
   } else if ( /\-|\//.test( value ) && !/UTC/.test( value ) ) {
-    value += ' UTC'
+    value = value.replace(' ', 'T') + 'Z'
   }
 
   return new Date( value )
