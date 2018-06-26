@@ -17,7 +17,8 @@ import { humanNumber,
         setAndBroadcastSession,
         encode64,
         decode64,
-        parseJwt
+        parseJwt,
+        atob
       } from '../src'
 
 describe('lhc-js-lib', () => {
@@ -78,6 +79,9 @@ describe('lhc-js-lib', () => {
   })
   it('exports parseJwt', () => {
     expect(parseJwt).toBeTruthy()
+  })
+  it('exports atob', () => {
+    expect(atob).toBeTruthy()
   })
 
 })

@@ -24,19 +24,19 @@ describe('Helpers', () => {
     const _today = new Date()
 
     it('should convert epoch time', () => {
-      expect(varToDate(_epoch)).toEqual('Thu Jul 06 2017 13:39:08 GMT-0400 (EDT)')
+      expect(varToDate(_epoch)).toEqual('Thu Jul 06 2017 13:39:08 GMT-0400 (Eastern Daylight Time)')
     })
 
     it('should convert php epoch time', () => {
-      expect(varToDate(_php_epoch)).toEqual('Thu Jul 06 2017 13:39:08 GMT-0400 (EDT)')
+      expect(varToDate(_php_epoch)).toEqual('Thu Jul 06 2017 13:39:08 GMT-0400 (Eastern Daylight Time)')
     })
 
     it('should convert datetime string', () => {
-      expect(varToDate(_string)).toEqual('Thu Jul 06 2017 09:39:08 GMT-0400 (EDT)')
+      expect(varToDate(_string)).toEqual('Thu Jul 06 2017 09:39:08 GMT-0400 (Eastern Daylight Time)')
     })
 
     it('should convert date instance', () => {
-      expect(varToDate(_date)).toEqual('Thu Jul 06 2017 13:39:08 GMT-0400 (EDT)')
+      expect(varToDate(_date)).toEqual('Thu Jul 06 2017 13:39:08 GMT-0400 (Eastern Daylight Time)')
     })
 
     it('should handle dateStampFormat', () => {

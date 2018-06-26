@@ -89,6 +89,25 @@ export const decode64 = ( input ) => {
    return unescape(output);
 }
 
+export const atob = ( input = '' ) => {
+  let str = input.replace(/=+$/, '');
+  let output = '';
+
+  if ( str.length % 4 == 1 ) {
+    throw new Error( "'atob' failed: The string to be decoded is not correctly encoded." );
+  }
+  for ( 
+    let bc = 0, bs = 0, buffer, i = 0;
+    buffer = str.charAt(i++);
+    ~buffer && ( bs = bc % 4 ? bs * 64 + buffer : buffer,
+      bc++ % 4 ) ? output += String.fromCharCode( 255 & bs >> ( -2 * bc & 6 ) ) : 0
+  ) {
+    buffer = keyStr.indexOf( buffer );
+  }
+
+  return output;
+}
+
 /**
  * Decode and parse segment of JWT
  *
@@ -100,5 +119,5 @@ export const parseJwt = ( token, at ) => {
   const base64Url = token.split( '.' )[ at ]
   const base64 = base64Url.replace( '-', '+' ).replace( '_', '/' )
 
-  return JSON.parse( window.atob( base64 ) )
+  return JSON.parse( atob( base64 ) )
 }

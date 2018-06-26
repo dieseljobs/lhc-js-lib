@@ -17,7 +17,8 @@ export const {
   yearsFromNowRange,
   encode64,
   decode64,
-  parseJwt
+  parseJwt,
+  atob
 } = helpers
 
 export const {
