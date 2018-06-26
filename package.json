@@ -3,6 +3,7 @@
   "version": "2.2.1",
   "description": "The Left Handed Companies Javascript libraray",
   "main": "lib/index.js",
+  "sideEffects": false,
   "scripts": {
     "compile": "babel -d lib/ src/",
     "compile-app-test": "browserify app-test.js -o app-test.compiled.js -t [ babelify --presets [ es2015 ] ]",
