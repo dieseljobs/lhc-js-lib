@@ -90,7 +90,7 @@ export const decode64 = ( input ) => {
 }
 
 export const atob = ( input = '' ) => {
-  let str = input.replace(/=+$/, '');
+  let str = input.replace(/=+$/, '').replace( /-/g, '+' ).replace( /_/g, '/' );
   let output = '';
 
   if ( str.length % 4 == 1 ) {
@@ -117,7 +117,6 @@ export const atob = ( input = '' ) => {
  */
 export const parseJwt = ( token, at ) => {
   const base64Url = token.split( '.' )[ at ]
-  const base64 = base64Url.replace( '-', '+' ).replace( '_', '/' )
 
-  return JSON.parse( atob( base64 ) )
+  return JSON.parse( atob( base64Url ) )
 }
