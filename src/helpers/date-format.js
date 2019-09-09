@@ -1,5 +1,3 @@
-import moment from 'moment'
-
 export const MONTH_NAMES = [
   "January",
   "February",
@@ -155,8 +153,8 @@ export const shortMonthDayFormat = ( value ) => {
 
 /**
  * Return date in long format ie (Sunday, September 17 2017)
- * @param  {mixed} value 
- * @return {String}       
+ * @param  {mixed} value
+ * @return {String}
  */
 export const longFormat = ( value ) => {
   const date = varToDate( value )
@@ -164,7 +162,7 @@ export const longFormat = ( value ) => {
   const _date = date.getDate()
   const _monthIndex = date.getMonth()
   const _year = date.getFullYear()
-  
+
   return `${WEEKDAYS[_dayIndex]}, ${MONTH_NAMES[ _monthIndex ]} ${_date}, ${_year}`
 }
 
@@ -207,7 +205,7 @@ export const yearsOld = ( year, floor = true ) => {
  * @return {array}
  */
 export const yearsFromNowRange = ( count ) => {
-  let cursorYear = parseInt( moment().format('YYYY') )
+  let cursorYear = parseInt( new Date().getFullYear() )
   let lastYear = cursorYear + count
   let yearRange = []
   while ( cursorYear < lastYear ) {
@@ -217,5 +215,3 @@ export const yearsFromNowRange = ( count ) => {
 
   return yearRange
 }
-
-

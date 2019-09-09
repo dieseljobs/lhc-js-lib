@@ -1,7 +1,7 @@
 {
   "name": "lhc-js-lib",
-  "version": "2.2.3",
-  "description": "The Left Handed Companies Javascript libraray",
+  "version": "2.2.4",
+  "description": "The Left Handed Companies Javascript library",
   "main": "lib/index.js",
   "sideEffects": false,
   "scripts": {
@@ -38,7 +38,5 @@
     "mocha": "^3.2.0",
     "mock-local-storage": "^1.0.2"
   },
-  "dependencies": {
-    "moment": "^2.18.1"
-  }
+  "dependencies": {}
 }
